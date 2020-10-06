@@ -1,0 +1,28 @@
+function meanImg = ComputeFacesMean(normset, icol, irow)
+%COMPUTEFACESMEAN computes the mean values for the faces in set
+%   It recieves:
+%       set: data set contatining the normalized images
+%
+%   It returns:
+%       meanImg: matrix containing the mean values       
+
+%obtain the mean of each row 
+m = mean(normset,2);
+
+%convert to unsigned 8-bit integer
+tmimg = uint8(m);
+
+%creates matrix from vector
+img = reshape(m, icol, irow);
+
+img = img'
+
+%plot
+figure(3);
+imshow(img);
+title('Mean Image', 'fontsize', 18);
+
+meanImg = img;
+
+end
+

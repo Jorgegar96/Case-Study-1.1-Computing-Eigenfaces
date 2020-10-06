@@ -1,0 +1,18 @@
+function set = Normalize(set)
+%NORMALIZE Normalizes each image in the dataset
+%   It recieves:
+%       set: The set of images that will be normalized
+%   
+%   It returns:
+%       set: The ser of normalized images
+
+for i=1:size
+    temp = double(set(:,i));
+    m = mean(temp);
+    st = std(temp);
+    set(:,i) = (temp-m) * ustd /st + um;
+end
+
+
+end
+
